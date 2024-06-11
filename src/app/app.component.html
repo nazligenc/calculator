@@ -13,9 +13,8 @@
       <div class="result-display">{{ result }}</div>
     </div>
     <div class="equalicon">
-
-
     </div>
+
   </div>
   <div class="keyboard">
     <div class="operator">
@@ -38,7 +37,7 @@
         <button (click)="appendNumber(9)">9</button>
         <button (click)="appendOperator('.')">.</button>
         <button (click)="appendNumber(0)">0</button>
-        <button (click)="appendNumber(0)">00</button>
+        <button (click)="appendZeroes(0)">00</button>
       </div>
       <div class="vertical">
         <div style="display: flex; flex-direction: column; gap: 20px">

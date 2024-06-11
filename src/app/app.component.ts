@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NgIf],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -26,7 +23,6 @@ export class AppComponent {
     } catch (e) {
       this.result = 'Error';
     }
-
   }
 
   appendNumber(num: number) {
@@ -38,8 +34,13 @@ export class AppComponent {
   }
 
   appendOperator(operator: string) {
-    if (operator === '+/-') {
-      this.display = this.display.startsWith('-') ? this.display.substring(1) : '-' + this.display;
+    if (this.display === '0' && operator !== '+/-' && operator !== '×' && operator !== '÷') {
+      return; // Eğer ekran değeri 0 ise ve eklenen operatör değiştirme işlemi değilse, işlem yapma
+    }
+
+    const lastChar = this.display[this.display.length - 1];
+    if (['+', '-', '×', '÷'].includes(lastChar) && ['+', '-', '×', '÷'].includes(operator)) {
+      this.display = this.display.slice(0, -1) + operator;
     } else {
       this.display += operator;
     }
@@ -52,14 +53,18 @@ export class AppComponent {
 
   toggleSign() {
     if (this.display === '0') {
-      // Eğer ekranda 0 varsa ve daha önce başka bir tuşa basılmamışsa, sadece 0'ı göster
       this.display = '0';
     } else if (this.display.startsWith('-')) {
-      // Eğer ekranda - ile başlayan bir değer varsa, - işaretini kaldır
       this.display = this.display.substring(1);
     } else {
-      // Değilse, ekrandaki değerin önüne - işareti ekle
       this.display = '-' + this.display;
+    }
+  }
+  appendZeroes(num:number) {
+    if (this.display !== '0') {
+      this.display += '00';
+    }else{
+      return;
     }
   }
 }
