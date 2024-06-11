@@ -1,65 +1,54 @@
-<style>
-
-</style>
-
 <div class="calculator">
   <div class="display">
-    <div class="displayalt">
-      <div class="theme-buttons">
-        <div style="display:flex;gap:1px">
-          <button class="theme-button light-theme" (click)="toggleTheme()">☼</button>
-          <button class="theme-button dark-theme" (click)="toggleTheme()">☾</button>
+    <div class="result">
+      <div class="displayalt">
+        <div class="theme-buttons">
+          <div style="display:flex;gap:1px">
+            <button class="theme-button light-theme" (click)="toggleTheme()">☼</button>
+            <button class="theme-button dark-theme" (click)="toggleTheme()">☾</button>
+          </div>
         </div>
       </div>
+      <div class="current-display">{{ display }}</div>
+      <div class="result-display">{{ result }}</div>
+    </div>
+    <div class="equalicon">
+
 
     </div>
-
-
-
-
   </div>
   <div class="keyboard">
-      <div class="operator">
-        <div style="display: flex;gap: 20px">
+    <div class="operator">
+      <div style="display: flex;gap: 20px">
         <button class="special-button" (click)="clear()">AC</button>
-        <button class="special-button" (click)="appendOperator('+/-')">+/-</button>
+        <button class="special-button" (click)="toggleSign()">+/-</button>
         <button class="special-button" (click)="appendOperator('%')">%</button>
-        </div>
       </div>
-      <div style="display:flex;flex-direction: row">
-        <div class="numbers row justify-content-center">
-          <button (click)="appendNumber(1)">1</button>
-          <button (click)="appendNumber(2)">2</button>
-          <button (click)="appendNumber(3)">3</button>
-          <button (click)="appendNumber(4)">4</button>
-          <button (click)="appendNumber(5)">5</button>
-          <button (click)="appendNumber(6)">6</button>
-          <button (click)="appendNumber(7)">7</button>
-          <button (click)="appendNumber(8)">8</button>
-          <button (click)="appendNumber(9)">9</button>
-          <button (click)="appendOperator('.')">.</button>
-
-          <button (click)="appendNumber(0)">0</button>
-          <button (click)="appendNumber(0)">00</button>
-
-
-
-
-
-
-        </div>
-        <div class="vertical">
-          <div style="display: flex; flex-direction: column; gap: 20px">
+    </div>
+    <div style="display:flex;flex-direction: row">
+      <div class="numbers row justify-content-center">
+        <button (click)="appendNumber(1)">1</button>
+        <button (click)="appendNumber(2)">2</button>
+        <button (click)="appendNumber(3)">3</button>
+        <button (click)="appendNumber(4)">4</button>
+        <button (click)="appendNumber(5)">5</button>
+        <button (click)="appendNumber(6)">6</button>
+        <button (click)="appendNumber(7)">7</button>
+        <button (click)="appendNumber(8)">8</button>
+        <button (click)="appendNumber(9)">9</button>
+        <button (click)="appendOperator('.')">.</button>
+        <button (click)="appendNumber(0)">0</button>
+        <button (click)="appendNumber(0)">00</button>
+      </div>
+      <div class="vertical">
+        <div style="display: flex; flex-direction: column; gap: 20px">
           <button (click)="appendOperator('/')">÷</button>
           <button (click)="appendOperator('*')">×</button>
           <button (click)="appendOperator('-')">-</button>
           <button (click)="appendOperator('+')">+</button>
           <button (click)="calculate()">=</button>
-
-          </div>
         </div>
       </div>
+    </div>
   </div>
-
-
 </div>

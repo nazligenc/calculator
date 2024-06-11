@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import {NgIf} from "@angular/common";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'calculator';
   display = '0';
+  result = '';
   isDarkMode = false;
 
   toggleTheme() {
@@ -19,16 +20,15 @@ export class AppComponent {
     document.documentElement.classList.toggle('dark-mode', this.isDarkMode);
   }
 
-
-
-
   calculate() {
     try {
-      this.display = eval(this.display.replace('×', '*').replace('÷', '/')).toString();
+      this.result = eval(this.display.replace('×', '*').replace('÷', '/')).toString();
     } catch (e) {
-      this.display = 'Error';
+      this.result = 'Error';
     }
+
   }
+
   appendNumber(num: number) {
     if (this.display === '0') {
       this.display = String(num);
@@ -36,6 +36,7 @@ export class AppComponent {
       this.display += String(num);
     }
   }
+
   appendOperator(operator: string) {
     if (operator === '+/-') {
       this.display = this.display.startsWith('-') ? this.display.substring(1) : '-' + this.display;
@@ -43,13 +44,22 @@ export class AppComponent {
       this.display += operator;
     }
   }
-  clear(){
 
+  clear() {
+    this.display = '0';
+    this.result = '';
   }
 
-
-
+  toggleSign() {
+    if (this.display === '0') {
+      // Eğer ekranda 0 varsa ve daha önce başka bir tuşa basılmamışsa, sadece 0'ı göster
+      this.display = '0';
+    } else if (this.display.startsWith('-')) {
+      // Eğer ekranda - ile başlayan bir değer varsa, - işaretini kaldır
+      this.display = this.display.substring(1);
+    } else {
+      // Değilse, ekrandaki değerin önüne - işareti ekle
+      this.display = '-' + this.display;
+    }
   }
-
-
-
+}
