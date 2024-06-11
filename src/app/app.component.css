@@ -1,0 +1,203 @@
+.calculator {
+  width: 423px;
+  height: 858px;
+  margin-left: 700px;
+  margin-top:100px;
+
+
+
+}
+.display{
+  width: 423px;
+  height: 351px;
+  margin-bottom: -30px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: white;
+
+}
+.displayalt{
+  margin-left:135px;
+  margin-right:135px;
+  position: relative;
+  top:29px;
+  background-color:lightcyan;
+  background-color: rgba(100, 0, 0, 0.2);
+  width: 140px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-style: none;
+  border-radius: 20px;
+}
+.theme-buttons button{
+
+  background:transparent;
+  padding: 10px 20px;
+  margin: -3px;
+  font-size: 16px;
+  border-style: none;
+  border-radius: 20px;
+
+}
+
+.keyboard{
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+  width: 423px;
+  height: 507px;
+  padding: 20px;
+  border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(650deg, rgba(1, 145, 255, 0.5), rgba(150, 202, 249, 0.4));
+
+}
+.operator{
+  width: 260px;
+  height: 70px;
+  top: 377px;
+  left: 34px;
+  border-radius: 40px;
+  background-color:lightcyan;
+  background-color: rgba(100, 0, 0, 0.1);
+
+}
+.operator button{
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+  text-align: center;
+  width: 260px;
+  height: 70px;
+  top: 377px;
+  left: 34px;
+  border-radius: 40px;
+  background:transparent;
+  border-style: none;
+
+}
+.numbers{
+ width: 260px;
+  height: 340px;
+  margin-top:20px;
+  background: transparent;
+
+
+}
+.numbers button{
+
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+  text-align: center;
+  margin: 5px auto;
+  padding: 20px;
+  gap:20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background-color:lightcyan;
+  background-color: rgba(100, 0, 0, 0.1);
+
+
+  border-style: none;
+
+
+
+
+
+}
+
+.vertical{
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+  text-align: center;
+  width: 70px;
+  height: 430px;
+  top: 377px;
+  left: 319px;
+  margin-left: 60px;
+  margin-top: -70px;
+  border-radius: 40px;
+  background-color:lightcyan;
+  background-color: rgba(100, 0, 0, 0.1);
+
+
+}
+.vertical button{
+  width: 70px;
+  height: 70px;
+  top: 377px;
+  left: 319px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 39px;
+  text-align: center;
+  border-radius: 25px;
+  background:transparent;
+  border-style: none;
+
+
+
+
+}
+.theme-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.theme-button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.light-theme {
+  background-color: #A9DCFD;
+}
+
+.dark-theme {
+  background-color: black;
+  color: white;
+}
+:host {
+  display: block;
+}
+
+:host.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
