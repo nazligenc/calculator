@@ -1,3 +1,19 @@
+.light-mode{
+  --white-bg: #f4f4f4;
+  --blue-bg: linear-gradient(650deg, rgba(1, 145, 255, 0.5), rgba(140, 202, 249, 0.4));;
+  --button-bg-color: #b5dffd;
+  --font-color: #383838;
+  --theme-button-bg: #b5dffd;
+}
+
+.dark-mode {
+  --white-bg: #262729;
+  --blue-bg: #133c57;
+  --button-bg-color: #0e273c;
+  --font-color: #f4f4f4;
+  --theme-button-bg: #003366;
+}
+
 .calculator {
   width: 423px;
   height: 858px;
@@ -12,8 +28,11 @@
   margin-bottom: -30px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-  background-color: white;
+  background-color: var(--white-bg);
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+
+
+
 
 }
 
@@ -22,8 +41,6 @@
   margin-right: 135px;
   position: relative;
   top: 29px;
-  background-color: lightcyan;
-  background-color: rgba(100, 0, 0, 0.2);
   width: 140px;
   padding: 10px 20px;
   cursor: pointer;
@@ -32,14 +49,7 @@
   border-radius: 20px;
 }
 
-.theme-buttons button {
-  background: transparent;
-  padding: 10px 20px;
-  margin: -3px;
-  font-size: 16px;
-  border-style: none;
-  border-radius: 20px;
-}
+
 
 .keyboard {
   font-size: 26px;
@@ -50,7 +60,9 @@
   padding: 20px;
   border-radius: 40px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(650deg, rgba(1, 145, 255, 0.5), rgba(140, 202, 249, 0.4));
+  background: var(--blue-bg);
+  position: absolute;
+   top:480px;
 }
 
 .operator {
@@ -59,8 +71,9 @@
   top: 377px;
   left: 34px;
   border-radius: 40px;
-  background-color: lightcyan;
-  background-color: rgba(100, 0, 0, 0.1);
+  background-color: var(--button-bg-color);
+  background: rgba(255, 255, 255, 0.3);
+
 }
 
 .operator button {
@@ -75,6 +88,10 @@
   border-radius: 40px;
   background: transparent;
   border-style: none;
+  color: var(--font-color);
+
+
+
 }
 
 .numbers {
@@ -95,9 +112,12 @@
   width: 70px;
   height: 70px;
   border-radius: 50px;
-  background-color: lightcyan;
-  background-color: rgba(100, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+
+
   border-style: none;
+  color: var(--font-color);
+
 }
 
 .vertical {
@@ -112,8 +132,8 @@
   margin-left: 60px;
   margin-top: -70px;
   border-radius: 40px;
-  background-color: lightcyan;
-  background-color: rgba(100, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.3);
+
 }
 
 .vertical button {
@@ -128,39 +148,42 @@
   border-radius: 25px;
   background: transparent;
   border-style: none;
+  color: var(--font-color);
+
 }
 
 .theme-buttons {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  position: absolute;
+  top: 44%;
+
+
 }
 
 .theme-button {
   padding: 10px 20px;
-  margin: 0 5px;
+  margin:-6px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: var(--theme-button-bg);
+  color: var(--font-color);
+  transition: all 0.3s ease; /* Kayma efekti için geçiş ekler*/
+  z-index: 3; /* Ikonların diğer içeriklerin üstünde olmasını sağlar */
+
+
+
 }
 
-.light-theme {
-  background-color: #A9DCFD;
-}
 
-.dark-theme {
-  background-color: black;
-  color: white;
-}
 
-:host {
-  display: block;
-}
 
-:host.dark-mode {
-  background-color: black;
-  color: white;
-}
+
+
+
 
 .result {
   margin-right:10px;
@@ -170,14 +193,16 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 10px;
+
 }
 
 .result-display {
+
   font-family: Poppins;
   margin-right:10px;
   font-size: 30px;
   font-weight: bold;
-
+  color: var(--font-color);
 
 }
 
@@ -190,17 +215,34 @@
   font-weight: 500;
   line-height: 33px;
   text-align: right;
-
-
-
+  color: var(--font-color);
 }
-.equalicon::after{
-  content: '=';
+
+.equalicon{
   font-size: 40px;
   font-weight: bold;
   margin-left:30px;
-  position: absolute;
-  top: 49%;
-  transform: translateY(-50%);
+  border-style: none;
+  background:transparent;
+  position:absolute;
+  top:44%;
+  color: var(--font-color);
 }
 
+.history{
+  position: relative;
+  background:transparent;
+  top: 30px;
+  right: 10px;
+  border-style: none;
+  color: var(--font-color);
+
+}
+.last-three-operations{
+  position:absolute;
+  width: 150px;
+  height: 200px;
+  top:100px;
+  right:240px;
+
+}

@@ -1,21 +1,46 @@
-<div class="calculator">
+<div class="calculator"  [ngClass]="{'dark-mode':isDarkMode,'light-mode':!isDarkMode}">
+
   <div class="display">
     <div class="result">
+
       <div class="displayalt">
         <div class="theme-buttons">
           <div style="display:flex;gap:1px">
-            <button class="theme-button light-theme" (click)="toggleTheme()">☼</button>
-            <button class="theme-button dark-theme" (click)="toggleTheme()">☾</button>
+            <button class="theme-button light-theme" (click)="toggleTheme()"><i class="fa-solid fa-sun"></i></button>
+            <button class="theme-button dark-theme" (click)="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+
           </div>
+
+
         </div>
       </div>
+
+      <div class="history">
+        <button (click)="toggleHistory()">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+
+        </button>
+        <div class="last-three-operations" *ngIf="showHistory">
+          <ul>
+            <li *ngFor="let operation of lastThreeOperations">{{ operation }}</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
       <div class="current-display">{{ display }}</div>
       <div class="result-display">{{ result }}</div>
-    </div>
-    <div class="equalicon">
+
     </div>
 
+    <div class="equalicon">
+      <i class="fa-solid fa-equals"></i>
+    </div>
   </div>
+
   <div class="keyboard">
     <div class="operator">
       <div style="display: flex;gap: 20px">
@@ -50,4 +75,6 @@
       </div>
     </div>
   </div>
+
+
 </div>

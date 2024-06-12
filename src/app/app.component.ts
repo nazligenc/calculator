@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import {NgClass, NgFor, NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
+  imports: [
+    NgClass,
+    NgIf,
+    NgForOf
+
+  ],
+
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
@@ -11,15 +19,32 @@ export class AppComponent {
   display = '0';
   result = '';
   isDarkMode = false;
+  showHistory = false;
+  lastThreeOperations: string[] = [];
+ toggleHistory(){
+   this.showHistory = !this.showHistory;
+
+ }
+
+  addOperationToHistory(operation: string) {
+    this.lastThreeOperations.unshift(operation);
+    if (this.lastThreeOperations.length > 3) {
+      this.lastThreeOperations.pop();
+    }
+  }
+
+
+
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-    document.documentElement.classList.toggle('dark-mode', this.isDarkMode);
+
   }
 
   calculate() {
     try {
       this.result = eval(this.display.replace('×', '*').replace('÷', '/')).toString();
+      this.addOperationToHistory(this.display + ' = ' + this.result);
     } catch (e) {
       this.result = 'Error';
     }
